@@ -1,0 +1,13 @@
+[deps]
+Convex = "f65535da-76fb-5f13-bab9-19810c17039a"
+Distributions = "31c24e10-a181-5473-b8eb-7969acd0382f"
+ForwardDiff = "f6369f11-7733-5829-9624-2563aa707210"
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+Mosek = "6405355b-0ac2-5fba-af84-adbd65488c0e"
+MosekTools = "1ec41992-ff65-5c91-ac43-2df89e9693a4"
+Parameters = "d96e819e-fc66-5662-9728-84c9c7592b0a"
+Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
+PolyChaos = "8d666b04-775d-5f6e-b778-5ac7c70f65a3"
+Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
+SCS = "c946c3f1-0d1f-5ce8-9dea-7daa1f7e2d13"
+TrajectoryOptimization = "c79d492b-0548-5874-b488-5a62c1d9d0ca"
