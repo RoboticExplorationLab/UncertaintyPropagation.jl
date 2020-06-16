@@ -10,6 +10,8 @@ using LinearAlgebra
 using Mosek, MosekTools
 using Parameters
 using Plots
+using Statistics
+using KernelDensity
 using TrajectoryOptimization
 
 const TO = TrajectoryOptimization
