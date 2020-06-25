@@ -10,3 +10,9 @@
 #Adding other visualization tools (projected ellipsoids plots)
 
 #Next Step is Set-based Unscented Propagation
+
+# Deal with Control input if controlled trajectory (see one_step_rollout function)
+# in the Robust Unscented Transform (RUT method)
+
+# Fix the problem with the first step of rut (initial condition not saved right now)
+# Check ellipses on the propagation on RUT method
