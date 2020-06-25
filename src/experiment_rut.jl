@@ -19,10 +19,10 @@ Q0 = Diagonal(U0.^2)       # initial uncertainty on state (matrix)
 S = [1.0; 1.0]             # scaling on coordinates (not used for now, see later)
 W = Diagonal(ones(0))      # uncertainty matrix for other parameters
 
-tf = 5.0
-N = 51
+tf = 25.0
+N = 251
 opts = RUTOptions(extract_scheme=:minimal_boundary,
-                  nbr_points=4,
+                  nbr_points=5,
                   ell_solver=:mosek,
                   disturbances=false,
                   int_scheme=RK4,
@@ -32,6 +32,7 @@ opts = RUTOptions(extract_scheme=:minimal_boundary,
 
 rut_propagator = RUTPropagator(model, x0, Q0, W, opts)
 rut_propagate!(rut_propagator)
+
 
 
 plot_center_trajectory(rut_propagator)

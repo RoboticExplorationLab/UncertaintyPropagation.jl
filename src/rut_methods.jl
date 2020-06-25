@@ -188,10 +188,10 @@ function plot_center_trajectory(prop::RUTPropagator)
 	A_list = prop.A_list
 	b_list = prop.b_list
 	N = prop.N
-	centers_list = [(-inv(A_list[i])*b_list[i]) for i=1:N]
+	centers_list = [(-inv(A_list[i])*b_list[i]) for i=1:N-1]
 	plt = plot()
-	Plots.plot!([centers_list[i][1] for i=1:N],
-					[center_list[i][2] for i=1:N])
+	Plots.plot!([centers_list[i][1] for i=1:N-1],
+					[centers_list[i][2] for i=1:N-1])
 	display(plt)
 	return nothing
 end
@@ -200,11 +200,11 @@ function animate_center_trajectory(prop::RUTPropagator)
 	A_list = prop.A_list
 	b_list = prop.b_list
 	N = prop.N
-	centers_list = [(-inv(A_list[i])*b_list[i]) for i=1:N]
+	centers_list = [(-inv(A_list[i])*b_list[i]) for i=1:N-1]
 	plt = plot()
-	anim = @animate for k=1:1:N
+	anim = @animate for k=1:1:N-1
 		Plots.scatter!([centers_list[k][1]],
-					[center_list[k][2]])
+					[centers_list[k][2]])
 		display(plt)
 	end
 	return nothing
@@ -216,15 +216,15 @@ function animate_ellipses(prop::RUTPropagator)
 	A_list = prop.A_list                  # get ellipsoids' shapes
 	b_list = prop.b_list                  # get ~ellipsoids' center info
 	plt = plot()
-	anim = @animate for j=1:1:N
+	anim = @animate for j=1:1:N-1
 		angles = 0.0:0.01:2*π
 		B = zeros(2, length(angles))
 		for i=1:length(angles)
 			B[:, i] = [cos(angles[i]) - b_list[j][1], sin(angles[i]) - b_list[j][2]]
-			ellipse  = A_list[j][1:2, 1:2] \ B
-			Plots.plot!(ellipse[1, :], ellipse[2, :], legend = false, color = :red, linewidth = 3.0)
-			display(plt)
 		end
+		ellipse  = A_list[j][1:2, 1:2] \ B
+		Plots.plot!(ellipse[1, :], ellipse[2, :], legend = false, color = :red, linewidth = 1.0)
+		display(plt)
 	end
 	return anim
 end
