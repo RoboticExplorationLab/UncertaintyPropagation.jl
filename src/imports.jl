@@ -12,6 +12,8 @@ using Parameters
 using Plots
 using Statistics
 using KernelDensity
+using JuMP
+using MathOptInterface
 using TrajectoryOptimization
 
 const TO = TrajectoryOptimization
